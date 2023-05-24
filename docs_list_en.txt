@@ -1,3 +1,4 @@
+.
 ├── Common
 │   ├── AVL
 │   │   ├── Latest-Release-AVL-Link.txt
@@ -99,7 +100,6 @@
 │   │   └── Rockchip_Developer_Guide_TEE_SDK_EN.pdf
 │   ├── System
 │   │   ├── Rockchip_Developer_Guide_Debian_EN.pdf
-│   │   ├── Rockchip_Developer_Guide_Linux_Docker_Deploy_EN.pdf
 │   │   └── Rockchip_Developer_Guide_Third_Party_System_Adaptation_EN.pdf
 │   ├── Uefi
 │   │   └── Rockchip_Developer_Guide_UEFI_EN.pdf
@@ -108,4 +108,4 @@
 └── Others
     └── Rockchip_Developer_Guide_Repo_Mirror_Server_Deploy_EN.pdf
 
-44 directories, 65 files
+44 directories, 64 files
