@@ -56,7 +56,10 @@
                float_dtype='float16',                           # new
                optimization_level=3,
                custom_string=None,                              # new
-               output_tensor_type=None)                         # new
+               remove_weight=False,                             # new
+               compress_weight=False,                           # new
+               inputs_yuv_fmt=None,                             # new
+               single_core_mode=False)                          # new
 
 - In addition to the above abandoned/new items, there are other differences:
 
@@ -68,7 +71,7 @@
             toolkit2: normal(default), mmse
         target_platform:
             toolkit1: rk1808, rk3399pro, rv1109, rv1126
-            toolkit2: rk3566, rk3568, rk3588
+            toolkit2: rk3566, rk3568, rk3588, rk3588s, rv1103, rv1106, rk3562 and newer
 
 ## rknn.load_tensorflow
 - Toolkit1:
@@ -257,7 +260,7 @@
 
         target:
             toolkit1: None(simulator), RK3399Pro, RK1808
-            toolkit2: None(simulator), RK3566, RK3568, RK3588
+            toolkit2: None(simulator), RK3566, RK3568, RK3588, RK3562
         
 
 
@@ -280,16 +283,14 @@
 ## rknn.eval_perf
 - Toolkit1:
         
-        eval_perf(inputs=None,
+        eval_perf(inputs=None,                                  # abandoned
                   data_type=None,                               # abandoned
-                  data_format=None,
+                  data_format=None,                             # abandoned
                   is_print=True,
                   loop_cnt=1)                                   # abandoned
 - Toolkit2:
 
-        eval_perf(inputs=None,
-                  data_format=None,
-                  is_print=True)
+        eval_perf(is_print=True)
 
 
 ## rknn.export_rknn_precompile_model
