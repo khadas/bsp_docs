@@ -1,4 +1,4 @@
-From 564c49ffbd3c5dfbfd7c6ed71b4e21b999bd3507 Mon Sep 17 00:00:00 2001
+From b5df1150a73a3fe955a93c638458c3ca48705212 Mon Sep 17 00:00:00 2001
 From: Liang Chen <cl@rock-chips.com>
 Date: Tue, 4 Jul 2023 11:47:16 +0800
 Subject: [PATCH 3/3] arm64: configs: optimize latency for PREEMPT_RT
@@ -10,7 +10,7 @@ Signed-off-by: Liang Chen <cl@rock-chips.com>
  1 file changed, 21 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/configs/rockchip_rt.config b/arch/arm64/configs/rockchip_rt.config
-index e57555e7eedd..2c6e12e2baa3 100644
+index e57555e7eedd1..2c6e12e2baa32 100644
 --- a/arch/arm64/configs/rockchip_rt.config
 +++ b/arch/arm64/configs/rockchip_rt.config
 @@ -1,4 +1,24 @@
@@ -40,5 +40,5 @@ index e57555e7eedd..2c6e12e2baa3 100644
 +CONFIG_HZ_1000=y
  CONFIG_PREEMPT_RT=y
 -- 
-2.25.1
+2.38.0
 
