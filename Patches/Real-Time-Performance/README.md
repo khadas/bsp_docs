@@ -11,16 +11,14 @@
 
 ## 一、PREEMPT_RT
 
-（1）kernel-5.10 base点：
+（1）目前kernel-5.10分为两个版本，一个是5.10.160版本，对应补丁位于PREEMPT_RT/kernel-5.10/5.10.160。一个是5.10.198版本，对应补丁位于PREEMPT_RT/kernel-5.10/5.10.198。确认内核的方法为查看kernel/Makefile，如果sublevel为160，则应打上5.10.160的补丁，反之应打上5.10.198的补丁。
 
-```c
-  commit cae91899b67b031d95f9163fe1fda74fbe0d931a (tag: linux-5.10-stan-rkr1)
-  Author: Lan Honglin <helin.lan@rock-chips.com>
-  Date:   Wed Jun 7 15:01:26 2023 +0800
-  ARM: configs: rockchip: rv1106 enable sc301iot for battery-ipc
-
-  Signed-off-by: Lan Honglin <helin.lan@rock-chips.com>
-  Change-Id: Ib844385bfd58f73eaa5f4e415d598d1f983fa4cd
+```makefile
+  # SPDX-License-Identifier: GPL-2.0
+  VERSION = 5
+  PATCHLEVEL = 10
+  SUBLEVEL = 160
+  ...
 ```
 
 （2）kernel-4.19 base点：
@@ -64,7 +62,7 @@ $ make ARCH=arm64 rk3588-evb1-lp4-v10-linux.img -j8
    使用cyclictest测试
 
 ```bash
-$ cyclictest -m -c 0 -t99 -t4 -l 12000000
+$ cyclictest -m -c 0 -p99 -t -D 12h
 ```
 
 ## 二、XENOMAI
@@ -169,7 +167,7 @@ $ make ARCH=arm64 rk3568-evb1-ddr4-v10-linux.img -j17
 ​    (2) 使用cyclictest测试
 
 ```bash
- $ ./usr/demo/cyclictest -m -n -c 0 -t99 -t4 -l 1200000
+ $ ./usr/demo/cyclictest -m -n -c 0 -p99 -t -D 12h
 ```
 
 ### 三、注意事项
