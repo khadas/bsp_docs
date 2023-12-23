@@ -38,13 +38,14 @@ makefile, some of the material listed above could not been saved, as the
 following list details.
 
 WARNING: the Buildroot source code has not been saved
-WARNING: gcc-final-11.3.0: cannot save license (HOST_GCC_FINAL_LICENSE_FILES not defined)
-WARNING: gcc-initial-11.3.0: cannot save license (HOST_GCC_INITIAL_LICENSE_FILES not defined)
+WARNING: gcc-final-12.3.0: cannot save license (HOST_GCC_FINAL_LICENSE_FILES not defined)
+WARNING: gcc-initial-12.3.0: cannot save license (HOST_GCC_INITIAL_LICENSE_FILES not defined)
 WARNING: linux-headers-custom: cannot save license (LINUX_HEADERS_LICENSE_FILES not defined)
 WARNING: linux-headers: sources not saved (local packages not handled)
 WARNING: rockchip-mali: sources not saved (local packages not handled)
-WARNING: dhrystone-2: cannot save license (DHRYSTONE_LICENSE_FILES not defined)
 WARNING: rockchip-rga: sources not saved (local packages not handled)
+WARNING: dhrystone-2: cannot save license (DHRYSTONE_LICENSE_FILES not defined)
+WARNING: font-awesome-4.7.0: cannot save license (FONT_AWESOME_LICENSE_FILES not defined)
 WARNING: linux-custom: cannot save license (LINUX_LICENSE_FILES not defined)
 WARNING: linux: sources not saved (local packages not handled)
 WARNING: camera-engine-rkaiq: sources not saved (local packages not handled)
