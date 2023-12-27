@@ -1,11 +1,10 @@
-.
 ├── Common
 │   ├── AVL
 │   │   ├── Latest-Release-AVL-Link.txt
-│   │   ├── RKeMMCSupportList_V1.73_20230303.pdf
 │   │   ├── RKNandFlashSupportList_Ver2.73_20180615.pdf
 │   │   ├── RK_SpiNor_and_SLC_Nand_SupportList_V1.41_20230303.pdf
-│   │   ├── Rockchip_Support_List_DDR_Ver2.55.pdf
+│   │   ├── RKeMMCSupportList_Ver1.74_20230411.pdf
+│   │   ├── Rockchip_Support_List_DDR_Ver2.56.pdf
 │   │   └── Rockchip_Support_List_Linux_WiFi_BT_20220828.pdf
 │   ├── CRYPTO
 │   │   └── Rockchip_Developer_Guide_Crypto_HWRNG_EN.pdf
@@ -36,9 +35,7 @@
 │   │   ├── rknn-toolkit2
 │   │   └── rknpu2
 │   ├── NVM
-│   │   ├── Rockchip_Developer_Guide_OTP_EN.pdf
-│   │   ├── Rockchip_Developer_Guide_Secure_Boot_Application_Note_EN.pdf
-│   │   └── Rockchip_Developer_Guide_Secure_Boot_for_UBoot_Next_Dev_EN.pdf
+│   │   └── Rockchip_Developer_Guide_Secure_Boot_Application_Note_EN.pdf
 │   ├── PINCTRL
 │   │   └── Rockchip_Developer_Guide_Linux_Pinctrl_EN.pdf
 │   ├── POWER
@@ -50,6 +47,9 @@
 │   │   └── Rockchip_FAQ_RGA_EN.pdf
 │   ├── SARADC
 │   │   └── Rockchip_Developer_Guide_Linux_SARADC_EN.pdf
+│   ├── SECURITY
+│   │   ├── Rockchip_Developer_Guide_OTP_EN.pdf
+│   │   └── Rockchip_Developer_Guide_Secure_Boot_for_UBoot_Next_Dev_EN.pdf
 │   ├── SPI
 │   │   └── Rockchip_Developer_Guide_Linux_SPI_EN.pdf
 │   ├── THERMAL
@@ -65,7 +65,6 @@
 │   │   └── Rockchip_Developer_Guide_USB_EN.pdf
 │   └── WATCHDOG
 │       └── Rockchip_Developer_Guide_Linux_WDT_EN.pdf
-├── docs_list_en.txt
 ├── Linux
 │   ├── ApplicationNote
 │   │   ├── Rockchip_Developer_Guide_Linux_Flash_Open_Source_Solution_EN.pdf
@@ -88,7 +87,9 @@
 │   │   ├── Rockchip_Developer_Guide_Buildroot_Weston_EN.pdf
 │   │   └── Rockchip_Developer_Guide_Linux_Graphics_EN.pdf
 │   ├── Multimedia
-│   │   └── Rockchip_User_Guide_Linux_Gstreamer_EN.pdf
+│   │   ├── Rockchip_Developer_Guide_Linux_Rkadk_EN.pdf
+│   │   ├── Rockchip_User_Guide_Linux_Gstreamer_EN.pdf
+│   │   └── Rockchip_User_Guide_Linux_Rockit_EN.pdf
 │   ├── Profile
 │   │   ├── Rockchip_Introduction_Linux_Benchmark_KPI_EN.pdf
 │   │   └── Rockchip_User_Guide_Linux_Software_Test_EN.pdf
@@ -105,7 +106,9 @@
 │   │   └── Rockchip_Developer_Guide_UEFI_EN.pdf
 │   └── Wifibt
 │       └── Rockchip_Developer_Guide_Linux_WIFI_BT_EN.pdf
-└── Others
-    └── Rockchip_Developer_Guide_Repo_Mirror_Server_Deploy_EN.pdf
+├── Others
+│   ├── Rockchip_Developer_Guide_Repo_Mirror_Server_Deploy_EN.pdf
+│   ├── Rockchip_User_Guide_Bug_System_EN.pdf
+│   └── Rockchip_User_Guide_SDK_Application_And_Synchronization_EN.pdf
+├── Rockchip_Developer_Guide_Linux_Software_EN.pdf
 
-44 directories, 64 files
