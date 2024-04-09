@@ -8,6 +8,7 @@
 | RK3562   | kernel-5.10              |
 | RK3568   | kernel-4.19，kernel-5.10 |
 | RK3588   | kernel-5.10              |
+| RK3576   | kernel-6.1               |
 
 ## 一、PREEMPT_RT
 
@@ -35,6 +36,11 @@ Change-Id: I61c840d812b88554aa154bfc7c1435e1345d287e
 ```
 
 ####   a). kernel打上补丁：
+
+kernel 6.1:
+
+​    `0001-arm64-configs-optimize-latency-for-PREEMPT_RT.patch ` 
+​    `0002-patches-6.1.59-rt16.patch-on-rockchip-base-cbba86deb.patch`
 
 kernel 5.10:
 
@@ -92,7 +98,7 @@ Signed-off-by: Zhihuan He <huan.he@rock-chips.com>
 Change-Id: Ie3c9b6150e792cb1bca395f630bf35da82168f2b
 ```
 
-  (3) buildroot需要更新，且包含这个补丁：
+  (3) buildroot需要更新，且包含这个补丁(kernel6.1版本，需要在buildroot打上0001-xenomai-Support-3.2.4.patch)：
 
 ```c
 commit 4bd33add016f393c8ed62fca0ace075755465928
@@ -108,6 +114,10 @@ Date:   Wed Jul 19 20:03:59 2023 +0800
 ```
 
 ####   a).在kernel上打上xenomai补丁：
+
+kernel 6.1:
+
+​     `0001-dovetail-core-6.10.57-on-rockchip-base-53048fad2a14.patch`
 
 kernel 5.10:
 
@@ -127,6 +137,8 @@ BR2_PACKAGE_XENOMAI_COBALT=y
 BR2_PACKAGE_XENOMAI_TESTSUITE=y
 BR2_PACKAGE_XENOMAI_ADDITIONAL_CONF_OPTS="--enable-demo"
 ```
+
+注：kernel6.1版本，XENOMAI使用v3.2.4版本。
 
 ####   c).把xenomai系统打到内核上：
 
