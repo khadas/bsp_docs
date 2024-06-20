@@ -1,7 +1,7 @@
-From 928dfddb480462548beb060a6ed5919d38857366 Mon Sep 17 00:00:00 2001
+From 7d5b7fafe42cdbfc70c54e19b11f6cddd446acbb Mon Sep 17 00:00:00 2001
 From: Liang Chen <cl@rock-chips.com>
 Date: Tue, 4 Jul 2023 11:47:16 +0800
-Subject: [PATCH 1/2] arm64: configs: optimize latency for PREEMPT_RT
+Subject: [PATCH 1/5] arm64: configs: optimize latency for PREEMPT_RT
 
 Change-Id: I463d66d69d8ab45435511265d0b977040bc26dac
 Signed-off-by: Liang Chen <cl@rock-chips.com>
