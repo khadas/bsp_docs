@@ -1,6 +1,58 @@
-[TOC]
+# Rockchip Linux RealTime Develop Guide
+文档标识：RK-KF-YF-A26
 
-# Rockchip RealTime Linux 实时性系统环境搭建
+发布版本：V1.0.0
+
+日期：2024-06-20
+
+文件密级：□绝密   □秘密   □内部资料   ■公开
+
+**免责声明**
+
+本文档按“现状”提供，瑞芯微电子股份有限公司（“本公司”，下同）不对本文档的任何陈述、信息和内容的准确性、可靠性、完整性、适销性、特定目的性和非侵权性提供任何明示或暗示的声明或保证。本文档仅作为使用指导的参考。
+
+由于产品版本升级或其他原因，本文档将可能在未经任何通知的情况下，不定期进行更新或修改。
+
+**商标声明**
+
+“Rockchip”、“瑞芯微”、“瑞芯”均为本公司的注册商标，归本公司所有。
+
+本文档可能提及的其他所有注册商标或商标，由其各自拥有者所有。
+
+**版权所有© 2024 瑞芯微电子股份有限公司**
+
+超越合理使用范畴，非经本公司书面许可，任何单位和个人不得擅自摘抄、复制本文档内容的部分或全部，并不得以任何形式传播。
+
+瑞芯微电子股份有限公司
+
+Rockchip Electronics Co., Ltd.
+
+地址：     福建省福州市铜盘路软件园A区18号
+
+网址：     www.rock-chips.com
+
+客户服务电话： +86-4007-700-590
+
+客户服务传真： +86-591-83951833
+
+客户服务邮箱： fae@rock-chips.com
+
+---
+
+**前言**
+
+**概述**
+
+本文主要描述了Rockchip Linux 内核实时性补丁基本使用方法，旨在帮助开发者快速了解并使用实时性系统。
+
+**读者对象**
+
+本文档（本指南）主要适用于以下工程师：
+
+技术支持工程师
+
+软件开发工程师
+
 **产品版本**
 
 | 芯片名称 | 内核版本                 |
@@ -9,6 +61,21 @@
 | RK3568   | kernel-4.19，kernel-5.10 |
 | RK3588   | kernel-5.10              |
 | RK3576   | kernel-6.1               |
+
+ **修订记录**
+
+| **日期**   | **版本** | **作者**   | **修改说明** |
+| ---------- | :------- | :--------- | :----------- |
+| 2023-11-20 | V0.0.1   | czz        | 初始版本     |
+| 2024-06-20 | V1.0.0   | LinJianhua | 更新到V1.0.0 |
+
+---
+
+**目录**
+
+[TOC]
+
+------
 
 ## 概要
 
@@ -117,11 +184,11 @@ Date:   Wed May 22 17:31:27 2024 +0800
 ```bash
 $ cd $sdk/kernel/
 $ export CROSS_COMPILE=../prebuilts/gcc/linux-x86/aarch64/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-
-$ make ARCH=arm64 rockchip_linux_defconfig rockchip_rt.config 
+$ make ARCH=arm64 rockchip_linux_defconfig rk3588_linux.config rockchip_rt.config
 $ make ARCH=arm64 rk3588-evb1-lp4-v10-linux.img -j8
 ```
 
-> 备注：以RK3588为例
+> 备注：此处以RK3588为例，其它芯片平台编译内核，内核配置要加上rockchip_rt.config。
 
 ###   烧录boot.img 并测试实时性性能
 
@@ -165,7 +232,7 @@ BR2_PACKAGE_XENOMAI_TESTSUITE=y
 BR2_PACKAGE_XENOMAI_ADDITIONAL_CONF_OPTS="--enable-demo"
 ```
 
-> 注：Kernel6.1版本，XENOMAI使用v3.2.4版本。
+> 注：Kernel6.1版本，XENOMAI使用v3.2.4版本, Buildroot需要包含0001-xenomai-Support-3.2.4.patch。
 >
 
 ###   把xenomai系统打到内核上：
