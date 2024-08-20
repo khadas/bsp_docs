@@ -1,9 +1,9 @@
 # Rockchip Linux RealTime Develop Guide
 文档标识：RK-KF-YF-A26
 
-发布版本：V1.0.0
+发布版本：V1.1.0
 
-日期：2024-06-20
+日期：2024-08-20
 
 文件密级：□绝密   □秘密   □内部资料   ■公开
 
@@ -61,13 +61,15 @@ Rockchip Electronics Co., Ltd.
 | RK3568   | kernel-4.19，kernel-5.10 |
 | RK3588   | kernel-5.10              |
 | RK3576   | kernel-6.1               |
+| RK3506   | kernel-6.1               |
 
  **修订记录**
 
-| **日期**   | **版本** | **作者**   | **修改说明** |
-| ---------- | :------- | :--------- | :----------- |
-| 2023-11-20 | V0.0.1   | czz        | 初始版本     |
-| 2024-06-20 | V1.0.0   | LinJianhua | 更新到V1.0.0 |
+| **日期**   | **版本** | **作者**   | **修改说明**           |
+| ---------- | :------- | :--------- | :--------------------- |
+| 2023-11-20 | V0.0.1   | czz        | 初始版本               |
+| 2024-06-20 | V1.0.0   | LinJianhua | 更新到V1.0.0           |
+| 2024-08-20 | V1.1.0   | LinJianhua | 增加Kernel-6.1.84 补丁 |
 
 ---
 
@@ -173,6 +175,44 @@ Date:   Wed May 22 17:31:27 2024 +0800
     Signed-off-by: Zhihuan He <huan.he@rock-chips.com>
 ```
 
+Kernel-6.1.84
+
+```bash
+commit b453658077fbb9e67d117a5ab2bb0cf5af729a95 (demo_debug)
+Merge: d7d3217791bd 347385861c50
+Author: Tao Huang <huangtao@rock-chips.com>
+Date:   Sat Aug 17 17:35:51 2024 +0800
+
+    Merge tag 'v6.1.84'
+
+    This is the 6.1.84 stable release
+
+    * tag 'v6.1.84': (1865 commits)
+      Linux 6.1.84
+      tools/resolve_btfids: fix build with musl libc
+      USB: core: Fix deadlock in usb_deauthorize_interface()
+      x86/sev: Skip ROM range scans and validation for SEV-SNP guests
+      scsi: libsas: Fix disk not being scanned in after being removed
+      scsi: libsas: Add a helper sas_get_sas_addr_and_dev_type()
+      scsi: lpfc: Correct size for wqe for memset()
+      scsi: lpfc: Correct size for cmdwqe/rspwqe for memset()
+      tls: fix use-after-free on failed backlog decryption
+      x86/cpu: Enable STIBP on AMD if Automatic IBRS is enabled
+      scsi: qla2xxx: Delay I/O Abort on PCI error
+      scsi: qla2xxx: Change debug message during driver unload
+      scsi: qla2xxx: Fix double free of fcport
+      scsi: qla2xxx: Fix command flush on cable pull
+      scsi: qla2xxx: NVME|FCP prefer flag not being honored
+      scsi: qla2xxx: Update manufacturer detail
+      scsi: qla2xxx: Split FCE|EFT trace control
+      scsi: qla2xxx: Fix N2N stuck connection
+      scsi: qla2xxx: Prevent command send on chip reset
+      usb: typec: ucsi: Clear UCSI_CCI_RESET_COMPLETE before reset
+      ...
+
+    Change-Id: If6edd552c88012d97f5eefc5e1d97a4f1683f171
+```
+
 ## PREEMPT_RT
 
 ###    内核打上补丁
@@ -189,6 +229,15 @@ $ make ARCH=arm64 rk3588-evb1-lp4-v10-linux.img -j8
 ```
 
 > 备注：此处以RK3588为例，其它芯片平台编译内核，内核配置要加上rockchip_rt.config。
+
+```bash
+$ cd $sdk/kernel/
+$ export CROSS_COMPILE=../prebuilts/gcc/linux-x86/arm/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-
+$ make ARCH=arm rk3506_defconfig rockchip_rt.config
+$ make ARCH=arm rk3506g-evb1-v10.img -j8
+```
+
+> 备注：32位内核以RK3506G EVB1 为例，其它芯片平台编译内核，在原配置的基础上，加上rockchip_rt.config 实时性配置。
 
 ###   烧录boot.img 并测试实时性性能
 
@@ -245,6 +294,15 @@ $ ../buildroot/output/rockchip_rk3588/build/xenomai-v3.2.2/scripts/prepare-kerne
 ###   编译内核
 
 编译命令：
+
+kernel 6.1(以RK3506为例)：
+
+```bash
+$ cd $sdk/kernel/
+$ export CROSS_COMPILE=../prebuilts/gcc/linux-x86/arm/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-
+$ make ARCH=arm rk3506_defconfig
+$ make ARCH=arm rk3506g-evb1-v10.img -j8
+```
 
 kernel 5.10(以RK3588为例)：
 
